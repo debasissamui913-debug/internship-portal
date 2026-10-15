@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse internships and apply online.">
+  <title>InternBoard | Find and Apply for Internships</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top">Intern<span>Board</span></a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#listings">Internships</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <h1>Find your first internship</h1>
+        <p>Search opportunities, filter by domain and apply in a minute.</p>
+      </div>
+    </section>
+
+    <section class="container" id="listings" aria-labelledby="listingsHeading">
+      <h2 id="listingsHeading" class="visually-hidden">Internship listings</h2>
+
+      <form class="controls" id="controls" role="search" aria-label="Search and filter internships">
+        <div class="field">
+          <label for="searchInput">Search by title, domain, location or skill</label>
+          <input type="search" id="searchInput" placeholder="e.g. Node.js, UI/UX, Pune">
+        </div>
+        <div class="field">
+          <label for="domainFilter">Domain</label>
+          <select id="domainFilter"><option value="all">All domains</option></select>
+        </div>
+        <button type="button" class="btn btn-secondary" id="clearBtn">Clear filters</button>
+      </form>
+
+      <p class="result-count" id="resultCount" aria-live="polite"></p>
+      <div id="message" class="message" hidden></div>
+      <div id="cardGrid" class="card-grid" aria-busy="false"></div>
+    </section>
+  </main>
+
+  <dialog id="applyDialog" aria-labelledby="dialogTitle">
+    <h2 id="dialogTitle">Apply</h2>
+    <form id="applyForm" novalidate>
+      <input type="hidden" id="internshipId" name="internshipId">
+
+      <div class="field">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" name="fullName" autocomplete="name" maxlength="80" aria-describedby="err-fullName">
+        <p class="field-error" id="err-fullName"></p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" maxlength="120" aria-describedby="err-email">
+        <p class="field-error" id="err-email"></p>
+      </div>
+      <div class="field">
+        <label for="phone">Phone (optional)</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" maxlength="16" aria-describedby="err-phone">
+        <p class="field-error" id="err-phone"></p>
+      </div>
+      <div class="field">
+        <label for="coverNote">Why do you want this internship? (20 to 1000 characters)</label>
+        <textarea id="coverNote" name="coverNote" rows="5" maxlength="1000" aria-describedby="err-coverNote"></textarea>
+        <p class="field-error" id="err-coverNote"></p>
+      </div>
+
+      <p class="form-error" id="formError" role="alert" hidden></p>
+
+      <div class="dialog-actions">
+        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Submit application</button>
+      </div>
+    </form>
+
+    <div id="applySuccess" hidden>
+      <p class="success" role="status" id="successText"></p>
+      <button type="button" class="btn btn-primary" id="doneBtn">Close</button>
+    </div>
+  </dialog>
+
+  <footer class="site-footer" id="footer">
+    <div class="container"><p>&copy; 2026 Debasis Samui. EdVyro Internship Task 04.</p></div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
